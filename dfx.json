@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "mu-smart-contract-backend": {
+      "candid": "src/mu-smart-contract-backend/mu-smart-contract-backend.did",
+      "package": "mu-smart-contract-backend",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
