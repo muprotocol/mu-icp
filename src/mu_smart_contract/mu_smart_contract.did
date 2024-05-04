@@ -1,0 +1,53 @@
+type AppDto = record {
+  id : principal;
+  usages : vec AppUsage;
+  state : AppState;
+};
+type AppState = variant {
+  Active : record { name : text; revision : nat32 };
+  Deleted;
+};
+type AppUsage = record {
+  kind : UsageKind;
+  timestamp : Timestamp;
+  amount : Tokens;
+};
+type DeployAppRequest = record { name : text; app_data : blob };
+type DeveloperDto = record { escrow_account : blob };
+type Error = variant {
+  Internal : text;
+  DeveloperAccountNotFound;
+  MaxAppsCountReached;
+  AppNotFound;
+  DeveloperAccountAlreadyExist;
+  InsufficientBalanceForDeploy : record { was : Tokens; needed : Tokens };
+};
+type InitArgs = record {
+  exchange_rate_timeout_seconds : nat64;
+  minimum_escrow_balance_for_deploy : Tokens;
+  commition_rate : float32;
+  max_apps_per_developer : nat64;
+};
+type Result = variant { Ok : principal; Err : Error };
+type Result_1 = variant { Ok : opt AppDto; Err : Error };
+type Result_2 = variant { Ok : vec AppDto; Err : Error };
+type Result_3 = variant { Ok : DeveloperDto; Err : Error };
+type Result_4 = variant { Ok; Err : Error };
+type Result_5 = variant { Ok : nat; Err : Error };
+type Result_6 = variant { Ok : nat64; Err : Error };
+type Timestamp = record { timestamp_nanos : nat64 };
+type Tokens = record { e8s : nat64 };
+type UsageKind = variant {
+  AdditionalServices : record { details : blob };
+  CyclesCharge : record { cylces : nat };
+};
+service : (InitArgs) -> {
+  deploy_app : (DeployAppRequest) -> (Result);
+  get_app : (principal) -> (Result_1) query;
+  get_apps : () -> (Result_2) query;
+  get_developer : () -> (Result_3) query;
+  register_developer : () -> (Result);
+  remove_app : (principal) -> (Result_4);
+  request_cycles : (nat64) -> (Result_5);
+  request_escrow_withdraw : (blob, Tokens) -> (Result_6);
+}

@@ -1,5 +1,5 @@
 [workspace]
 members = [
-    "src/mu-smart-contract-backend"
+    "src/mu_smart_contract"
 ]
 resolver = "2"

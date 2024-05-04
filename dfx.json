@@ -1,15 +1,18 @@
 {
   "canisters": {
-    "mu-smart-contract-backend": {
-      "candid": "src/mu-smart-contract-backend/mu-smart-contract-backend.did",
-      "package": "mu-smart-contract-backend",
+    "exchange_rate_canister": {
+      "candid": "https://raw.githubusercontent.com/dfinity/exchange-rate-canister/2024.04.05/src/xrc/xrc.did",
+      "package": "mu_smart_contract",
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/exchange-rate-canister/releases/download/2024.04.05/xrc.wasm.gz"
+    },
+    "mu_smart_contract": {
+      "candid": "src/mu_smart_contract/mu_smart_contract.did",
+      "dependencies": [
+        "exchange_rate_canister"
+      ],
+      "package": "mu_smart_contract",
       "type": "rust"
-    }
-  },
-  "defaults": {
-    "build": {
-      "args": "",
-      "packtool": ""
     }
   },
   "output_env_file": ".env",

@@ -1,0 +1,19 @@
+[package]
+name = "mu_smart_contract"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+candid = "0.10"
+ic-cdk = "0.13"
+serde = { version = "1", features = ["derive"] }
+serde_bytes = "0.11.14"
+ciborium = "0.2.2"
+ic-stable-structures = "0.6.4"
+ic-ledger-types = "0.10.0"
+
+[build-dependencies]
+ic-cdk-bindgen = "0.1.3"
