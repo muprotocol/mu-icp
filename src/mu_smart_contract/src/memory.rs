@@ -50,14 +50,10 @@ pub struct State {
 
 impl State {
     pub fn init_settings(&mut self, settings: Settings) {
-        ic_cdk::println!("State.settings initialized");
-        ic_cdk::println!("ThreadID: {:?}", std::thread::current().id());
         self.settings.get_or_init(|| settings);
     }
 
     pub fn settings(&self) -> &Settings {
-        ic_cdk::println!("State.settings:{:?}", self.settings);
-        ic_cdk::println!("ThreadID: {:?}", std::thread::current().id());
         self.settings
             .get()
             .expect("Canister is not initialized correctly")

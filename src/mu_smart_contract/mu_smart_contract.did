@@ -29,12 +29,12 @@ type InitArgs = record {
   max_apps_per_developer : nat64;
 };
 type Result = variant { Ok : principal; Err : Error };
-type Result_1 = variant { Ok : opt AppDto; Err : Error };
-type Result_2 = variant { Ok : vec AppDto; Err : Error };
-type Result_3 = variant { Ok : DeveloperDto; Err : Error };
-type Result_4 = variant { Ok; Err : Error };
-type Result_5 = variant { Ok : nat; Err : Error };
-type Result_6 = variant { Ok : nat64; Err : Error };
+type GetAppResult = variant { Ok : opt AppDto; Err : Error };
+type GetAppsResult = variant { Ok : vec AppDto; Err : Error };
+type GetDeveloperResult = variant { Ok : DeveloperDto; Err : Error };
+type RemoveAppResult = variant { Ok; Err : Error };
+type RequestCyclesResult = variant { Ok : nat; Err : Error };
+type RequestEscrowWithdrawResult = variant { Ok : nat64; Err : Error };
 type Timestamp = record { timestamp_nanos : nat64 };
 type Tokens = record { e8s : nat64 };
 type UsageKind = variant {
@@ -43,11 +43,11 @@ type UsageKind = variant {
 };
 service : (InitArgs) -> {
   deploy_app : (DeployAppRequest) -> (Result);
-  get_app : (principal) -> (Result_1) query;
-  get_apps : () -> (Result_2) query;
-  get_developer : () -> (Result_3) query;
+  get_app : (principal) -> (GetAppResult) query;
+  get_apps : () -> (GetAppsResult) query;
+  get_developer : () -> (GetDeveloperResult) query;
   register_developer : () -> (Result);
-  remove_app : (principal) -> (Result_4);
-  request_cycles : (nat64) -> (Result_5);
-  request_escrow_withdraw : (blob, Tokens) -> (Result_6);
+  remove_app : (principal) -> (RemoveAppResult);
+  request_cycles : (nat64) -> (RequestCyclesResult);
+  request_escrow_withdraw : (blob, Tokens) -> (RequestEscrowWithdrawResult);
 }

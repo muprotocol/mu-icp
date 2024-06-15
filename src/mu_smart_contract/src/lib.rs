@@ -5,7 +5,7 @@ mod declarations;
 mod developer;
 mod error;
 mod memory;
-mod settings;
+pub mod settings;
 mod utils;
 
 ic_cdk::export_candid!();

@@ -1,19 +1,17 @@
 [package]
-name = "mu_smart_contract"
+name = "e2e-tests"
 version = "0.1.0"
 edition = "2021"
-
-[lib]
-crate-type = ["cdylib"]
 
 [dependencies]
 candid.workspace = true
 ic-cdk.workspace = true
-serde.workspace = true
-serde_bytes.workspace = true
-ciborium = "0.2.2"
-ic-stable-structures = "0.6.4"
 ic-ledger-types.workspace = true
+serde_bytes.workspace = true
+futures.workspace = true
+serde.workspace = true
+rand = "0.8.5"
+pocket-ic = "3.0"
 
 [build-dependencies]
 ic-cdk-bindgen.workspace = true
