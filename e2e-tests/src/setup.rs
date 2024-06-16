@@ -30,9 +30,9 @@ use pocket_ic::{PocketIc, PocketIcBuilder};
 use serde::Deserialize;
 use serde::Serialize;
 
-use crate::canisters::ledger_canister;
-use crate::canisters::mu_smart_contract;
-use crate::canisters::mu_smart_contract::Result_;
+use crate::declarations::ledger_canister;
+use crate::declarations::mu_smart_contract;
+use crate::declarations::mu_smart_contract::Result_;
 use crate::utils::random_principal;
 
 const MU_SMART_CONTRACT_WASM_FILE: OnceLock<Vec<u8>> = OnceLock::new();
@@ -103,7 +103,7 @@ impl TestCase {
         );
 
         // Specify token details.
-        let ledger_canister_init_args = crate::canisters::ledger_canister::InitArgs {
+        let ledger_canister_init_args = crate::declarations::ledger_canister::InitArgs {
             token_symbol: Some("ICP".to_string()),
             transfer_fee: Some(ledger_canister::Tokens {
                 e8s: DEFAULT_FEE.e8s(),

@@ -1,4 +1,4 @@
-pub mod canisters;
+pub mod declarations;
 pub mod setup;
 pub mod utils;
 

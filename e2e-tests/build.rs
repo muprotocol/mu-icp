@@ -1,10 +1,6 @@
-use std::path::PathBuf;
-
 use ic_cdk_bindgen::{Builder, Config};
 
 fn main() {
-    let manifest_dir =
-        PathBuf::from(std::env::var("CARGO_MANIFEST_DIR").expect("Cannot find manifest dir"));
     let mut builder = Builder::new();
 
     let mut mu_smart_contract_canister = Config::new("mu_smart_contract");
@@ -21,5 +17,5 @@ fn main() {
 
     builder.add(ledger_canister);
 
-    builder.build(Some(manifest_dir.join("src/canisters"))); // default write to src/declarations
+    builder.build(None); // default write to src/declarations
 }
