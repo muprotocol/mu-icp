@@ -1,15 +1,15 @@
-use crate::canisters::mu_smart_contract;
-use crate::canisters::mu_smart_contract::Error;
-use crate::canisters::mu_smart_contract::GetDeveloperResult;
-use crate::canisters::mu_smart_contract::RequestEscrowWithdrawResult;
-use crate::canisters::mu_smart_contract::Result_;
+use crate::declarations::mu_smart_contract;
+use crate::declarations::mu_smart_contract::Error;
+use crate::declarations::mu_smart_contract::GetDeveloperResult;
+use crate::declarations::mu_smart_contract::RequestEscrowWithdrawResult;
+use crate::declarations::mu_smart_contract::Result_;
 use crate::setup::TestCase;
 
-use crate::canisters::mu_smart_contract::AppDto;
-use crate::canisters::mu_smart_contract::AppState;
-use crate::canisters::mu_smart_contract::DeployAppRequest;
-use crate::canisters::mu_smart_contract::GetAppResult;
-use crate::canisters::mu_smart_contract::RemoveAppResult;
+use crate::declarations::mu_smart_contract::AppDto;
+use crate::declarations::mu_smart_contract::AppState;
+use crate::declarations::mu_smart_contract::DeployAppRequest;
+use crate::declarations::mu_smart_contract::GetAppResult;
+use crate::declarations::mu_smart_contract::RemoveAppResult;
 use ic_ledger_types::AccountIdentifier;
 use ic_ledger_types::Tokens;
 use ic_ledger_types::DEFAULT_FEE;
