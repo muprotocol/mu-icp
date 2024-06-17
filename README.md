@@ -1,5 +1,5 @@
 # Overall mu architecture
-![mu overall architecture](https://github.com/muprotocol/mu-icp/tree/main/architecture.png)
+![mu overall architecture](https://raw.githubusercontent.com/muprotocol/mu-icp/main/architecture.png)
 
 # Canisters
 1. [mu smart contract](https://github.com/muprotocol/mu-icp/tree/main/src/mu_smart_contract/)
